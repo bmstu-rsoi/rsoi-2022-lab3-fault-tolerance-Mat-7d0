@@ -24,7 +24,7 @@ jobs:
         run: docker compose build
 
       - name: Run containers
-        timeout-minutes: 10
+        timeout-minutes: 5
         run: |
           docker compose up -d
           ./scripts/wait-script.sh
@@ -37,7 +37,7 @@ jobs:
           time: '15s'
 
       - name: Run API Tests
-        timeout-minutes: 10
+        timeout-minutes: 5
         run: ./scripts/test-script.sh
         env:
           VARIANT: v3
