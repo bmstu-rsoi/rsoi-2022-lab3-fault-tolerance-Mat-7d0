@@ -23,6 +23,8 @@ services:
       DATA_BASE_USER: "postgres"
       DATA_BASE_PASS: "postgres"
       DATA_BASE_HOST: "postgres"
+    depends_on:
+      - postgres
     ports:
       - "8070:8070"
 
@@ -35,6 +37,8 @@ services:
       DATA_BASE_USER: "postgres"
       DATA_BASE_PASS: "postgres"
       DATA_BASE_HOST: "postgres"
+    depends_on:
+      - postgres
     ports:
       - "8050:8050"
 
@@ -47,6 +51,8 @@ services:
       DATA_BASE_USER: "postgres"
       DATA_BASE_PASS: "postgres"
       DATA_BASE_HOST: "postgres"
+    depends_on:
+      - postgres
     ports:
       - "8060:8060"
 
@@ -62,6 +68,11 @@ services:
       RENTAL_SERVICE_PORT: "8060"
       QUEUE_SERVICE_HOST: "queue_service"
       QUEUE_SERVICE_PORT: "8040"
+    depends_on:
+      - cars_service
+      - payment_service
+      - rental_service
+      - queue_service
     ports:
       - "8080:8080"
 
