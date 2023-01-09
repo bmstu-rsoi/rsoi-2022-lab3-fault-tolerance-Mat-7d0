@@ -25,6 +25,8 @@ services:
       DATA_BASE_HOST: "postgres"
     ports:
       - "8070:8070"
+    depends_on:
+      - postgres
 
   payment_service:
     build: src/payment_service
@@ -37,6 +39,8 @@ services:
       DATA_BASE_HOST: "postgres"
     ports:
       - "8050:8050"
+    depends_on:
+      - postgres
 
   rental_service:
     build: src/rental_service
@@ -49,6 +53,8 @@ services:
       DATA_BASE_HOST: "postgres"
     ports:
       - "8060:8060"
+    depends_on:
+      - postgres
 
   gateway_service:
     build: src/gateway_service
