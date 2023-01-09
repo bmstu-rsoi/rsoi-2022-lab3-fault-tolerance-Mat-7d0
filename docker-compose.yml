@@ -36,9 +36,9 @@ services:
     ports:
       - "8060:8060"
 
-  gate_way_service:
-    build: src/gate_way_service
-    container_name: gate_way_service
+  gateway_service:
+    build: src/gateway_service
+    container_name: gateway_service
     environment:
       CARS_SERVICE_HOST: "cars_service"
       CARS_SERVICE_PORT: "8070"
