@@ -23,9 +23,6 @@ services:
   cars_service:
     build: src/cars_service
     container_name: cars_service
-    #depends_on:
-    #  postgres:
-    #    condition: service_healthy
     environment:
       DATA_BASE_PORT: "5432"
       DATA_BASE_NAME: "postgres"
@@ -38,9 +35,6 @@ services:
   payment_service:
     build: src/payment_service
     container_name: payment_service
-    #depends_on:
-    #  postgres:
-    #    condition: service_healthy
     environment:
       DATA_BASE_PORT: "5432"
       DATA_BASE_NAME: "postgres"
@@ -53,9 +47,6 @@ services:
   rental_service:
     build: src/rental_service
     container_name: rental_service
-    #depends_on:
-    #  postgres:
-    #    condition: service_healthy
     environment:
       DATA_BASE_PORT: "5432"
       DATA_BASE_NAME: "postgres"
@@ -68,15 +59,7 @@ services:
   gateway_service:
     build: src/gateway_service
     container_name: gateway_service
-    #depends_on:
-    #  postgres:
-    #    condition: service_healthy
     environment:
-      #DATA_BASE_PORT: "5432"
-      #DATA_BASE_NAME: "postgres"
-      #DATA_BASE_USER: "postgres"
-      #DATA_BASE_PASS: "postgres"
-      #DATA_BASE_HOST: "postgres"
       CARS_SERVICE_HOST: "cars_service"
       CARS_SERVICE_PORT: "8070"
       PAYMENT_SERVICE_HOST: "payment_service"
